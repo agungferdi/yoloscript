@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}">
+    <title>Result</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Corn Seeds Detection</h1>
+    </div>
+    <div class="center-container">
+        <img src="data:image/jpeg;base64,{{ b64_img }}" width="960" height="960">
+        <h3>Total Corn Seeds</h3>
+       <p class="large-text">{{ classes["Total Corn"] }} </p>
+        <h3>Cumulative Count</h3>
+        <p class="large-text">{{ cumulative_count }}</p>
+
+        <div class="form-container">
+            <form method="GET" action="/">
+            <input type="submit" value="Upload Another">
+            </form>
+             <form method="POST" action="/reset">
+            <input type="submit" name="reset" value="Reset Count">
+            </form>
+         </div>
+    </div>
+<img class="logo2"src="../static/cartoon1.png" alt="Logo2">
+</body>
+</html>

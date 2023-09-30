@@ -1,0 +1,105 @@
+/* Style the form container */
+.header {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Vertically align content */
+    justify-content: center; /* Horizontally align content */
+}
+
+.logo2 {
+  margin-top: -410px; /* Adjust the top margin as needed */
+  margin-left: 370px;
+  width: 180px;
+  height: auto;
+  position: relative; /* Position relative for absolute positioning */
+  animation: floatAnimation 4s ease-in-out infinite; /* Define the animation */
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Adjust the vertical float distance */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+ .form-container {
+            text-align: center; /* Center-align the buttons */
+        }
+
+        /* Style for the buttons */
+        .form-container input[type="submit"] {
+            background-color: #7323a2; /* Background color */
+            border: 1px solid #ccc; /* Border */
+            border-radius: 5px; /* Rounded corners */
+            color: #f0f0f0; /* Text color */
+            font-size: 16px; /* Text size */
+            padding: 10px 20px; /* Padding around text */
+            cursor: pointer; /* Cursor style */
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+            margin-bottom: 10px;
+        }
+
+        /* Hover effect */
+        .form-container input[type="submit"]:hover {
+            background-color: #720a3e; /* Background color on hover */
+            color: #fff; /* Text color on hover */
+        }
+.large-text {
+    font-size: 24px; /* Adjust the font size as needed */
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+h1 {
+    text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+  }
+h4 {
+    text-align: center;
+	margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	-webkit-animation: gradient 15s ease infinite;
+	        animation: gradient 15s ease infinite;
+	height: 100vh;
+	color: aliceblue;
+}
+
+@-webkit-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Corn-Seeds Detector</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+
+<div class="container-main">
+    <img class="logo"src="../static/logo.png" alt="Logo">
+    <h1>Corn Seeds Detection</h1>
+    <div class="form-container">
+        <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".png, .jpg, .jpeg" required>
+        <input type="submit" value="Upload">
+         </form>
+    </div>
+
+    <h4>Capture from Webcam</h4>
+
+    <!-- Webcam capture button -->
+    <button id="webcamCapture">Webcam</button>
+
+    <!-- Hidden form for webcam capture -->
+    <form method="POST" action="/capture_webcam" enctype="multipart/form-data" id="webcamCaptureForm">
+        <input type="hidden" name="webcam_image_data" id="webcamImageData">
+    </form>
+
+    <!-- Video element to display the webcam feed -->
+    <video id="webcam" autoplay style="display:none;"></video>
+</div>
+ <img class="logo2"src="../static/cartoon2.png" alt="Logo2">
+
+
+
+    <!-- JavaScript to capture webcam image -->
+   <script>
+    const webcamCaptureButton = document.getElementById('webcamCapture');
+    const webcamCaptureForm = document.getElementById('webcamCaptureForm');
+    const webcamImageDataInput = document.getElementById('webcamImageData');
+    const videoElement = document.getElementById('webcam');
+    // Update the getUserMedia constraints to configure brightness and exposure
+const constraints = {
+    video: {
+        facingMode: 'environment', // Use the rear camera if available (for smartphones)
+        brightness: { ideal: 100 }, // Adjust the brightness setting
+        exposureMode: 'auto', // Set exposure mode to automatic
+    }
+};
+
+// Function to start the webcam feed with updated constraints
+async function startWebcam() {
+    try {
+        stream = await navigator.mediaDevices.getUserMedia(constraints);
+        videoElement.srcObject = stream;
+    } catch (error) {
+        console.error('Error accessing webcam:', error);
+    }
+}
+
+// Rest of the code remains the same
+
+    let stream = null; // To keep track of the webcam stream
+
+    // Function to start the webcam feed
+    async function startWebcam() {
+        try {
+            stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            videoElement.srcObject = stream;
+        } catch (error) {
+            console.error('Error accessing webcam:', error);
+        }
+    }
+
+    // Function to capture and submit a photo
+    function capturePhoto() {
+        const canvas = document.createElement('canvas');
+        canvas.width = videoElement.videoWidth;
+        canvas.height = videoElement.videoHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+
+        // Convert the canvas content to a data URL (JPEG format)
+        const dataURL = canvas.toDataURL('image/jpeg');
+
+        // Set the data URL as the value of the hidden input field
+        webcamImageDataInput.value = dataURL;
+
+        // Stop the webcam stream and release resources
+        if (stream) {
+            const tracks = stream.getTracks();
+            tracks.forEach(track => track.stop());
+        }
+
+        // Reset the video element
+        videoElement.srcObject = null;
+
+        // Submit the form to capture the image
+        webcamCaptureForm.submit();
+    }
+
+    // Start the webcam when the page loads
+    window.addEventListener('load', startWebcam);
+
+    // Add a click event listener to the capture button
+    webcamCaptureButton.addEventListener('click', capturePhoto);
+</script>
+
+</body>
+</html>
