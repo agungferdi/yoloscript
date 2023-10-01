@@ -1,6 +1,2 @@
-# corn-seeds-detection-Yolov8
-# corn-seeds-detection-Yolov8
-# corn-seeds-detection-Yolov8
-# corn-seeds-detection-Yolov8
-# corn-seeds-detection-Yolov8
-# corn-seeds-detection-Yolov8
+copyright to @agungferdi
+the model of images should be trained first
