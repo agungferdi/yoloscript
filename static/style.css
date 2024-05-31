@@ -1,178 +1,154 @@
-/* Style the form container */
+/* General styles */
 form {
   text-align: center;
 }
-.logo {
-            width: 150px; /* Set the desired width */
-            height: auto; /* Maintain aspect ratio by setting height to auto */
-        }
-.logo2{
-    margin-top: -590px; /* Adjust the top margin as needed */
-     margin-left: 820px;
-    width: 120px;
-    height: auto;
 
-  position: relative; /* Position relative for absolute positioning */
-  animation: floatAnimation 4s ease-in-out infinite; /* Define the animation */
+.logo {
+  width: 200px; /* Adjusted size to be 2x bigger */
+  height: auto;
+  display: block;
+  margin: 1px auto;
+  line-height: 1; /* Set line-height to remove extra space below text */
 }
+
+.logo2 {
+  width: 120px;
+  height: auto;
+  position: absolute;
+  top: 61%;
+  right:11%;
+  animation: floatAnimation 4s ease-in-out infinite;
+}
+
 @keyframes floatAnimation {
   0% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-5px); /* Adjust the vertical float distance */
+    transform: translateY(-5px);
   }
   100% {
     transform: translateY(0);
   }
 }
+
 /* Style the "Webcam" button */
 #webcamCapture {
-  padding: 5px 20px;
-  background-color: #7323a2; /* Set your desired button color */
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* Style the "Webcam" button on hover */
-#webcamCapture:hover {
-  background-color: #720a3e; /* Change color on hover */
-}
-
-/* Style the hidden form for webcam capture */
-#webcamCaptureForm {
-  display: none; /* Hide the form by default */
-}
-
-/* Style the video element for the webcam feed */
-#webcam {
-  display: none; /* Hide the video element by default */
-  width: 100%; /* Set the width as needed */
-  max-width: 100%;
-}
-
-
-
-/* Style the file input field (the box) */
-/* Style the file input field (the box) */
-input[type="file"] {
-  display: block;
-  margin: 2px auto;
-  padding: 5px;
-  border: 2px solid #ccc;
-  border-radius: 2px;
-  font-size: 16px;
-  position: relative;
-  cursor: pointer;
-  width: 250px;
-}
-
-/* Style the "Choose File" button */
-input[type="file"]::before {
-  content: 'Choose File';
-  display: inline-block;
-  padding: 5px 7px;
-  background-color: #7323a2; /* Set your desired button color */
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  position: absolute;
-  top: 10px;
-  left: 20px; /* Adjust this value to move the button right or left */
-  cursor: pointer;
-}
-
-.container-main{
-	 display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-
-
- }
-  /* Style the file input field and the submit button */
-.form-container input[type="file"]
- {
-  display: inline-block; /* Keep both elements on the same line */
-  margin: 10px;
-  padding: 10px 20px;
-  background-color: rgba(115, 35, 162, 0);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-.form-container input[type="submit"]{
-display: inline-block; /* Keep both elements on the same line */
-  margin: 10px;
-  padding: 5px 20px;
+  padding: 8px 12px;
   background-color: #7323a2;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
+  display: block;
+  margin: 10px auto;
+}
+
+#webcamCapture:hover {
+  background-color: #720a3e;
+}
+
+/* Style the hidden form for webcam capture */
+#webcamCaptureForm {
+  display: none;
+}
+
+/* Style the video element for the webcam feed */
+#webcam {
+  display: none;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* Style the form container */
+.form-container {
+  text-align: center; /* Center align the contents */
+}
+
+/* Style the file input field */
+.form-container input[type="file"] {
+  padding: 6px 10px; /* Adjust padding */
+  background-color: #7323a2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px; /* Adjust font size */
+  cursor: pointer;
+  max-width: 120px; /* Set maximum width */
+}
+
+/* Style the submit button */
+.form-container input[type="submit"] {
+  padding: 8px 12px; /* Adjust padding */
+  background-color: #7323a2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 /* Style the submit button on hover */
-
 .form-container input[type="submit"]:hover {
   background-color: #b40463;
 }
 
-
-h1 {
-    text-align: center;
-	margin-top: 20px;
-	margin-bottom: 20px;
-  }
-h4 {
-    text-align: center;
-	margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	-webkit-animation: gradient 15s ease infinite;
-	        animation: gradient 15s ease infinite;
-	height: 100vh;
-	color: aliceblue;
+h1, h4 {
+  text-align: center;
+  margin: 20px;
 }
 
-@-webkit-keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-@media screen and (min-width: 601px) and (max-width: 1024px) {
-    /* Styles for medium-sized screens, like tablets */
-    .container-main{
 
-    scale: 120%;
-}}
+/* Media queries for responsive design */
+@media screen and (max-width: 600px) {
+  .container-main {
+    padding: 10px;
+    height: auto;
+  }
+  /* Maintain the original size of the logo and logo2 */
+  /* .logo, .logo2 {
+    width: 80px;
+  } */
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-container input[type="file"],
+  .form-container input[type="submit"] {
+    width: 60%;
+    padding: 8px 12px; /* Adjust padding */
+    font-size: 14px; /* Adjust font size */
+    margin: 5px 0; /* Add margin for better spacing */
+  }
+}

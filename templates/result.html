@@ -2,31 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}">
     <title>Result</title>
 </head>
-<body>
-    <div class="header">
+<body class="d-flex flex-column align-items-center bg-gradient">
+    <div class="header my-3">
         <h1>Corn Seeds Detection</h1>
     </div>
-    <div class="center-container">
-        <img src="data:image/jpeg;base64,{{ b64_img }}" width="960" height="960">
+    <div class="center-container text-center">
+        <img class="img-fluid mb-3" src="data:image/jpeg;base64,{{ b64_img }}" alt="Corn Image">
         <h3>Total Corn Seeds</h3>
-       <p class="large-text">{{ classes["Total Corn"] }} </p>
+        <p class="large-text">{{ classes["Total Corn"] }}</p>
         <h3>Cumulative Count</h3>
         <p class="large-text">{{ cumulative_count }}</p>
-
-        <div class="form-container">
-            <form method="GET" action="/">
-            <input type="submit" value="Upload Another">
+        <div class="form-container d-flex flex-column">
+            <form method="GET" action="/" class="mb-2">
+                <input type="submit" value="Upload Another" class="btn btn-primary">
             </form>
-             <form method="POST" action="/reset">
-            <input type="submit" name="reset" value="Reset Count">
+            <form method="POST" action="/reset">
+                <input type="submit" name="reset" value="Reset Count" class="btn btn-danger">
             </form>
-         </div>
+        </div>
     </div>
-<img class="logo2"src="../static/cartoon1.png" alt="Logo2">
+    <img class="logo2" src="../static/cartoon1.png" alt="Logo2">
 </body>
 </html>
